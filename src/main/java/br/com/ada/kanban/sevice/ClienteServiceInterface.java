@@ -2,6 +2,8 @@ package br.com.ada.kanban.sevice;
 
 import br.com.ada.carloca.domain.Cliente;
 import br.com.ada.carloca.dto.ClienteDTO;
+import br.com.ada.kanban.domain.Cliente;
+import br.com.ada.kanban.dto.ClienteDTO;
 
 import java.util.List;
 

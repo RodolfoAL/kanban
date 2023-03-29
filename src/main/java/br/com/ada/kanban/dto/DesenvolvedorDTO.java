@@ -1,6 +1,6 @@
 package br.com.ada.kanban.dto;
 
-import br.com.ada.carloca.domain.Tarefa;
+import br.com.ada.kanban.domain.Tarefa;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
