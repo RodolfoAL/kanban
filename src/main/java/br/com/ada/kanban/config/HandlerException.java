@@ -1,7 +1,9 @@
 package br.com.ada.kanban.config;
 
-import br.com.ada.carloca.dto.ErrorDTO;
-import br.com.ada.carloca.exceptions.ClienteNotFoundException;
+import br.com.ada.kanban.dto.ErrorDTO;
+import br.com.ada.kanban.exceptions.ClienteAlreadyExistsException;
+import br.com.ada.kanban.exceptions.ClienteNotFoundException;
+import br.com.ada.kanban.exceptions.DesenvolvedorNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -29,8 +31,25 @@ public class HandlerException {
         return errors;
 
     }
-
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler
     public ErrorDTO handlerClienteNotFound(ClienteNotFoundException e) {
+        return ErrorDTO.builder()
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler
+    public ErrorDTO handlerClienteAlreadyExistsException(ClienteAlreadyExistsException e) {
+        return ErrorDTO.builder()
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler
+    public ErrorDTO handlerDesenvolvedorNotFoundException(DesenvolvedorNotFoundException e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
                 .build();

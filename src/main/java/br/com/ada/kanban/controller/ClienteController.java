@@ -3,6 +3,7 @@ package br.com.ada.kanban.controller;
 
 import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.dto.ClienteDTO;
+import br.com.ada.kanban.sevice.ClienteService;
 import br.com.ada.kanban.sevice.ClienteServiceInterface;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,32 +17,32 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClienteController {
 
-    private final ClienteServiceInterface clienteServiceInterface;
+    private final ClienteService clienteService;
 
     @GetMapping
     public List<Cliente> list() {
-        return clienteServiceInterface.list();
+        return clienteService.list();
     }
 
     @GetMapping ("{id}")
     public Cliente findById(@PathVariable Long id) {
-        return clienteServiceInterface.findById(id);
+        return clienteService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus (HttpStatus.CREATED)
-    public Cliente save(@Valid @RequestBody Cliente cliente) {
-        return clienteServiceInterface.save(cliente);
-    }
-
-    @DeleteMapping ("{id}")
-    public void delete(@PathVariable Long id) {
-        clienteServiceInterface.delete(id);
+    public Cliente save(@Valid @RequestBody ClienteDTO dto) {
+        return clienteService.save(dto);
     }
 
     @PutMapping ("{id}")
     public Cliente update(@Valid @PathVariable Long id, @RequestBody ClienteDTO dto) {
-        return clienteServiceInterface.update(id, dto);
+        return clienteService.update(id, dto);
+    }
+
+    @DeleteMapping ("{id}")
+    public void delete(@PathVariable Long id) {
+        clienteService.delete(id);
     }
 
 }

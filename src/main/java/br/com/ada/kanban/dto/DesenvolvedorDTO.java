@@ -17,6 +17,7 @@ public class DesenvolvedorDTO {
 
     @NotBlank (message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
     private String nome;
+
     @NotBlank (message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
     private List<Tarefa> tarefa;
 }

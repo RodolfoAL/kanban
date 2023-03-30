@@ -1,7 +1,7 @@
 package br.com.ada.kanban.dto;
 
-import br.com.ada.carloca.domain.Cliente;
-import br.com.ada.carloca.domain.Desenvolvedor;
+import br.com.ada.kanban.domain.Cliente;
+import br.com.ada.kanban.domain.Desenvolvedor;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

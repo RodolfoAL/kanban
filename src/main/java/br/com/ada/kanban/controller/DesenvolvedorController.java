@@ -1,6 +1,8 @@
 package br.com.ada.kanban.controller;
 
+import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.domain.Desenvolvedor;
+import br.com.ada.kanban.dto.ClienteDTO;
 import br.com.ada.kanban.dto.DesenvolvedorDTO;
 import br.com.ada.kanban.sevice.DesenvolvedorService;
 import jakarta.validation.Valid;
@@ -37,4 +39,11 @@ public class DesenvolvedorController {
     public Desenvolvedor update(@Valid @PathVariable Long id, @RequestBody DesenvolvedorDTO dto) {
         return desenvolvedorService.update(id, dto);
     }
+
+    @DeleteMapping ("{id}")
+    public void delete(@PathVariable Long id) {
+        desenvolvedorService.delete(id);
+    }
+
+
 }
