@@ -32,9 +32,11 @@ public class ClienteService implements ClienteServiceInterface {
         throw new ClienteAlreadyExistsException();
     }
 
-
     @Override
     public void delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new ClienteNotFoundException();
+        }
         repository.deleteById(id);
     }
 

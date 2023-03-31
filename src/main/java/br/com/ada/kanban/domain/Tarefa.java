@@ -33,6 +33,9 @@ public class Tarefa {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

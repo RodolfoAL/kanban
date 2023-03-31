@@ -4,7 +4,6 @@ package br.com.ada.kanban.controller;
 import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.dto.ClienteDTO;
 import br.com.ada.kanban.sevice.ClienteService;
-import br.com.ada.kanban.sevice.ClienteServiceInterface;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
