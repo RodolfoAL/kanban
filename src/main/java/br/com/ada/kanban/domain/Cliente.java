@@ -1,5 +1,6 @@
 package br.com.ada.kanban.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +20,17 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String nome;
     private String empresa;
+
     @Column(nullable = false)
     private String telefone;
+
     @Column(nullable = false)
     @OneToMany(mappedBy = "cliente")
+    @JsonIgnoreProperties("cliente")
     private List<Tarefa> pedidos;
 
     @Override

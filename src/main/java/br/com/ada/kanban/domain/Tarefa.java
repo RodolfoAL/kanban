@@ -19,8 +19,10 @@ public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String titulo;
+
     @Column(nullable = false)
     private String descricao;
 
@@ -28,8 +30,9 @@ public class Tarefa {
     @ManyToMany
     @Column(nullable = false)
     private List<Desenvolvedor> desenvolvedor;
+
     @Column(nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
