@@ -1,10 +1,8 @@
 package br.com.ada.kanban.controller;
 
-import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.domain.Desenvolvedor;
-import br.com.ada.kanban.dto.ClienteDTO;
 import br.com.ada.kanban.dto.DesenvolvedorDTO;
-import br.com.ada.kanban.sevice.DesenvolvedorService;
+import br.com.ada.kanban.service.DesenvolvedorServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,32 +15,40 @@ import java.util.List;
 @RestController
 public class DesenvolvedorController {
 
-    private final DesenvolvedorService desenvolvedorService;
+    private final DesenvolvedorServiceImpl desenvolvedorServiceImpl;
 
     @GetMapping
     public List<Desenvolvedor> list(){
-        return desenvolvedorService.list();
+        return desenvolvedorServiceImpl.list();
     }
 
     @GetMapping("{id}")
     public Desenvolvedor findById(@PathVariable Long id ){
-        return desenvolvedorService.findById(id);
+        return desenvolvedorServiceImpl.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Desenvolvedor save(@Valid @RequestBody DesenvolvedorDTO dto) {
-        return desenvolvedorService.save(dto);
+        Desenvolvedor desenvolvedor = Desenvolvedor.builder()
+                .nome(dto.getNome())
+                .tarefa(dto.getTarefa())
+                .build();
+        return desenvolvedorServiceImpl.save(desenvolvedor);
     }
 
     @PutMapping("{id}")
     public Desenvolvedor update(@Valid @PathVariable Long id, @RequestBody DesenvolvedorDTO dto) {
-        return desenvolvedorService.update(id, dto);
+        Desenvolvedor desenvolvedor = Desenvolvedor.builder()
+                .nome(dto.getNome())
+                .tarefa(dto.getTarefa())
+                .build();
+        return desenvolvedorServiceImpl.update(id, desenvolvedor);
     }
 
     @DeleteMapping ("{id}")
     public void delete(@PathVariable Long id) {
-        desenvolvedorService.delete(id);
+        desenvolvedorServiceImpl.delete(id);
     }
 
 

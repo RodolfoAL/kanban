@@ -1,6 +1,7 @@
-package br.com.ada.kanban.sevice;
+package br.com.ada.kanban.service;
 
 import br.com.ada.kanban.domain.Desenvolvedor;
+import br.com.ada.kanban.exceptions.DesenvolvedorAlreadyExistException;
 import br.com.ada.kanban.exceptions.DesenvolvedorNotFoundException;
 import br.com.ada.kanban.repository.DesenvolvedorRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
-public class DesenvolvedorService implements IDesenvolvedorService{
+public class DesenvolvedorServiceImpl implements DesenvolvedorService {
 
     private final DesenvolvedorRepository repository;
     @Override
@@ -21,7 +22,7 @@ public class DesenvolvedorService implements IDesenvolvedorService{
         if(!repository.existsById(desenvolvedor.getId())){
             repository.save(desenvolvedor);
         }
-        throw new DesenvolvedorNotFoundException();
+        throw new DesenvolvedorAlreadyExistException();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package br.com.ada.kanban.sevice;
+package br.com.ada.kanban.service;
 
 import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.exceptions.ClienteAlreadyExistsException;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ClienteService implements ClienteServiceInterface {
+public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository repository;
 

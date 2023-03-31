@@ -1,11 +1,10 @@
-package br.com.ada.kanban.sevice;
+package br.com.ada.kanban.service;
 
 import br.com.ada.kanban.domain.Desenvolvedor;
-import br.com.ada.kanban.dto.DesenvolvedorDTO;
 
 import java.util.List;
 
-public interface IDesenvolvedorService {
+public interface DesenvolvedorService {
 
     List<Desenvolvedor> list();
     Desenvolvedor save( Desenvolvedor desenvolvedor);

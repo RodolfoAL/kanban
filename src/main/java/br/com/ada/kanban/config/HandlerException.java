@@ -1,9 +1,7 @@
 package br.com.ada.kanban.config;
 
 import br.com.ada.kanban.dto.ErrorDTO;
-import br.com.ada.kanban.exceptions.ClienteAlreadyExistsException;
-import br.com.ada.kanban.exceptions.ClienteNotFoundException;
-import br.com.ada.kanban.exceptions.DesenvolvedorNotFoundException;
+import br.com.ada.kanban.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -32,15 +30,15 @@ public class HandlerException {
 
     }
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler
+    @ExceptionHandler(ClienteNotFoundException.class)
     public ErrorDTO handlerClienteNotFound(ClienteNotFoundException e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
                 .build();
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(ClienteAlreadyExistsException.class)
     public ErrorDTO handlerClienteAlreadyExistsException(ClienteAlreadyExistsException e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
@@ -48,8 +46,32 @@ public class HandlerException {
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler
+    @ExceptionHandler(DesenvolvedorNotFoundException.class)
     public ErrorDTO handlerDesenvolvedorNotFoundException(DesenvolvedorNotFoundException e) {
+        return ErrorDTO.builder()
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(DesenvolvedorAlreadyExistException.class)
+    public ErrorDTO handlerDesenvolvedorAlreadyExistsException(DesenvolvedorAlreadyExistException e) {
+        return ErrorDTO.builder()
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(TarefaNotFoundException.class)
+    public ErrorDTO handlerTarefaNotFoundException(TarefaNotFoundException e) {
+        return ErrorDTO.builder()
+                .message(e.getMessage())
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(TarefaAlreadyExistsException.class)
+    public ErrorDTO handlerTarefaAlreadyExistsException(TarefaAlreadyExistsException e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
                 .build();
