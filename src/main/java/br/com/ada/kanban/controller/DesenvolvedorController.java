@@ -2,6 +2,7 @@ package br.com.ada.kanban.controller;
 
 import br.com.ada.kanban.domain.Desenvolvedor;
 import br.com.ada.kanban.dto.DesenvolvedorDTO;
+import br.com.ada.kanban.mapper.DesenvolvedorMapper;
 import br.com.ada.kanban.service.DesenvolvedorServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,8 @@ public class DesenvolvedorController {
 
     private final DesenvolvedorServiceImpl desenvolvedorServiceImpl;
 
+    private final DesenvolvedorMapper mapper;
+
     @GetMapping
     public List<Desenvolvedor> list(){
         return desenvolvedorServiceImpl.list();
@@ -30,19 +33,13 @@ public class DesenvolvedorController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Desenvolvedor save(@Valid @RequestBody DesenvolvedorDTO dto) {
-        Desenvolvedor desenvolvedor = Desenvolvedor.builder()
-                .nome(dto.getNome())
-                .tarefa(dto.getTarefa())
-                .build();
+        Desenvolvedor desenvolvedor = mapper.desenvolvedorDTOToDesenvolvedor(dto);
         return desenvolvedorServiceImpl.save(desenvolvedor);
     }
 
     @PutMapping("{id}")
     public Desenvolvedor update(@Valid @PathVariable Long id, @RequestBody DesenvolvedorDTO dto) {
-        Desenvolvedor desenvolvedor = Desenvolvedor.builder()
-                .nome(dto.getNome())
-                .tarefa(dto.getTarefa())
-                .build();
+        Desenvolvedor desenvolvedor = mapper.desenvolvedorDTOToDesenvolvedor(dto);
         return desenvolvedorServiceImpl.update(id, desenvolvedor);
     }
 

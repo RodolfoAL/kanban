@@ -3,6 +3,7 @@ package br.com.ada.kanban.controller;
 
 import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.dto.ClienteDTO;
+import br.com.ada.kanban.mapper.ClienteMapper;
 import br.com.ada.kanban.service.ClienteServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,8 @@ public class ClienteController {
 
     private final ClienteServiceImpl clienteServiceImpl;
 
+    private final ClienteMapper mapper;
+
     @GetMapping
     public List<Cliente> list() {
         return clienteServiceImpl.list();
@@ -31,21 +34,13 @@ public class ClienteController {
     @PostMapping
     @ResponseStatus (HttpStatus.CREATED)
     public Cliente save(@Valid @RequestBody ClienteDTO dto) {
-        Cliente cliente = Cliente.builder()
-                .nome(dto.getNome())
-                .empresa(dto.getEmpresa())
-                .telefone(dto.getTelefone())
-                .build();
+        Cliente cliente = mapper.clienteDTOToCliente(dto);
         return clienteServiceImpl.save(cliente);
     }
 
     @PutMapping ("{id}")
     public Cliente update(@Valid @PathVariable Long id, @RequestBody ClienteDTO dto) {
-        Cliente cliente = Cliente.builder()
-                .nome(dto.getNome())
-                .empresa(dto.getEmpresa())
-                .telefone(dto.getTelefone())
-                .build();
+        Cliente cliente = mapper.clienteDTOToCliente(dto);
         return clienteServiceImpl.update(id, cliente);
     }
 
