@@ -7,8 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,7 +32,7 @@ public class Cliente {
     @Column(nullable = false)
     @OneToMany(mappedBy = "cliente")
     @JsonIgnoreProperties("cliente")
-    private List<Tarefa> pedidos;
+    private Set<Tarefa> pedidos = new HashSet<Tarefa>();
 
     @Override
     public boolean equals(Object o) {

@@ -30,48 +30,16 @@ public class HandlerException {
 
     }
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ClienteNotFoundException.class)
-    public ErrorDTO handlerClienteNotFound(ClienteNotFoundException e) {
+    @ExceptionHandler({ClienteNotFoundException.class, DesenvolvedorNotFoundException.class, TarefaNotFoundException.class })
+    public ErrorDTO handlerNotFound(Exception e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
                 .build();
     }
 
     @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler(ClienteAlreadyExistsException.class)
-    public ErrorDTO handlerClienteAlreadyExistsException(ClienteAlreadyExistsException e) {
-        return ErrorDTO.builder()
-                .message(e.getMessage())
-                .build();
-    }
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(DesenvolvedorNotFoundException.class)
-    public ErrorDTO handlerDesenvolvedorNotFoundException(DesenvolvedorNotFoundException e) {
-        return ErrorDTO.builder()
-                .message(e.getMessage())
-                .build();
-    }
-
-    @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler(DesenvolvedorAlreadyExistException.class)
-    public ErrorDTO handlerDesenvolvedorAlreadyExistsException(DesenvolvedorAlreadyExistException e) {
-        return ErrorDTO.builder()
-                .message(e.getMessage())
-                .build();
-    }
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(TarefaNotFoundException.class)
-    public ErrorDTO handlerTarefaNotFoundException(TarefaNotFoundException e) {
-        return ErrorDTO.builder()
-                .message(e.getMessage())
-                .build();
-    }
-
-    @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler(TarefaAlreadyExistsException.class)
-    public ErrorDTO handlerTarefaAlreadyExistsException(TarefaAlreadyExistsException e) {
+    @ExceptionHandler({ClienteAlreadyExistsException.class,DesenvolvedorAlreadyExistException.class, TarefaAlreadyExistsException.class })
+    public ErrorDTO handlerAlreadyExistsException(Exception e) {
         return ErrorDTO.builder()
                 .message(e.getMessage())
                 .build();

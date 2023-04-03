@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,10 +24,12 @@ public class Desenvolvedor {
     @Column(nullable = false)
     private String nome;
 
-    //todo Mapear a lista de desenvolvedor para lista de tarefa
     @Column(nullable = false)
     @ManyToMany
-    private List<Tarefa> tarefa;
+    @JoinTable(name = "desenvolvedor_tarefa",
+    joinColumns = @JoinColumn(name = "desenvolvedor_id"),
+    inverseJoinColumns = @JoinColumn(name = "tarefa_id"))
+    private Set<Tarefa> tarefa = new HashSet<Tarefa>();
 
     @Override
     public boolean equals(Object o) {

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -25,6 +26,6 @@ public class ClienteDTO {
     private String telefone;
 
     @NotBlank (message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private List<Tarefa> pedidos;
+    private Set<Tarefa> pedidos;
 
 }

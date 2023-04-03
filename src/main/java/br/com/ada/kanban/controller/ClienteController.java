@@ -3,8 +3,7 @@ package br.com.ada.kanban.controller;
 
 import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.dto.ClienteDTO;
-import br.com.ada.kanban.mapper.ClienteMapper;
-import br.com.ada.kanban.service.ClienteServiceImpl;
+import br.com.ada.kanban.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,36 +16,42 @@ import java.util.List;
 @RestController
 public class ClienteController {
 
-    private final ClienteServiceImpl clienteServiceImpl;
+    private final ClienteService clienteService;
 
-    private final ClienteMapper mapper;
 
     @GetMapping
     public List<Cliente> list() {
-        return clienteServiceImpl.list();
+        return clienteService.list();
     }
 
     @GetMapping ("{id}")
     public Cliente findById(@PathVariable Long id) {
-        return clienteServiceImpl.findById(id);
+        return clienteService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus (HttpStatus.CREATED)
     public Cliente save(@Valid @RequestBody ClienteDTO dto) {
-        Cliente cliente = mapper.clienteDTOToCliente(dto);
-        return clienteServiceImpl.save(cliente);
+        Cliente cliente = builderCliente(dto);
+        return clienteService.save(cliente);
     }
 
     @PutMapping ("{id}")
     public Cliente update(@Valid @PathVariable Long id, @RequestBody ClienteDTO dto) {
-        Cliente cliente = mapper.clienteDTOToCliente(dto);
-        return clienteServiceImpl.update(id, cliente);
+        Cliente cliente = builderCliente(dto);
+        return clienteService.update(id, cliente);
     }
 
     @DeleteMapping ("{id}")
     public void delete(@PathVariable Long id) {
-        clienteServiceImpl.delete(id);
+        clienteService.delete(id);
     }
 
+    public Cliente builderCliente(ClienteDTO dto){
+        Cliente cliente = Cliente.builder()
+                .nome(dto.getNome())
+                .empresa(dto.getEmpresa())
+                .telefone(dto.getTelefone()).build();
+        return cliente;
+    }
 }

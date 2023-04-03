@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -26,10 +28,10 @@ public class Tarefa {
     @Column(nullable = false)
     private String descricao;
 
-    //todo Escrever como é o mapeamento de desenvolvedor com tarefa
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "tarefa")
     @Column(nullable = false)
-    private List<Desenvolvedor> desenvolvedor;
+    private Set<Desenvolvedor> desenvolvedor = new HashSet<Desenvolvedor>();
 
     @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)

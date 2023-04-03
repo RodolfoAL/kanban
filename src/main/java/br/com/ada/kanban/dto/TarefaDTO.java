@@ -21,10 +21,5 @@ public class TarefaDTO {
     private String titulo;
     @NotBlank(message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
     private String descricao;
-    @NotBlank(message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private List<Desenvolvedor> desenvolvedor;
-    @NotBlank(message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private Cliente cliente;
-    @NotBlank(message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private Status status;
+
 }
