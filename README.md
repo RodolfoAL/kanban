@@ -28,7 +28,7 @@ Vamos utilizar uma API pública para semear o banco dos desenvolvedores.
 
 ## Diagrama do projeto
 
-![Imagem](https://github.com/Bethania-Freitas/projeto_sql_devstart/blob/main/diagrama_carloca.png?raw=true)
+![App Screenshot](https://github.com/RodolfoAL/kanban/blob/main/Diagrama.jpeg?raw=true)
 
 
 ## Autores
