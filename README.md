@@ -35,28 +35,16 @@ Vamos utilizar uma API pública para semear o banco dos desenvolvedores.
 
 
 - Bethania Freitas
-
-[<img src="https://avatars.githubusercontent.com/u/103520931?v=4" width=115><br> Bethânia Freitas </sub>](https://github.com/Bethania-Freitas)
-________________________________
-
 - Rodolfo Assis Lisboa
-
-[<img src="https://avatars.githubusercontent.com/u/112034982?v=4" width=115><br> Rodolfo Assis Lisboa </sub>](https://github.com/RodolfoAL)
-________________________________
-
 - João Ortega
-
-[<img src="https://avatars.githubusercontent.com/u/86262930?v=4" width=115><br> João Ortega </sub>](https://github.com/joaoortegabr)
-________________________________
-
 - Vitor Ribeiro
-
-[<img src="https://avatars.githubusercontent.com/u/104174897?v=4" width=115><br> Vitor Ribeiro </sub>](https://github.com/vitoreribeiro)
-________________________________
-
 - Victor Hugo Gonçalves
 
-[<img src="https://avatars.githubusercontent.com/u/112724179?v=4" width=115><br> Victor Hugo Gonçalves</sub>](https://github.com/VH-RochaGoncalves) 
+[<abbr title="Bethânia Freitas"><img src="https://avatars.githubusercontent.com/u/103520931?v=4" width=115></sub></abbr>](https://github.com/Bethania-Freitas)
+[<abbr title="Rodolfo Assis Lisboa"><img src="https://avatars.githubusercontent.com/u/112034982?v=4" width=115></sub></abbr>](https://github.com/RodolfoAL)
+[<abbr title="João Ortega"><img src="https://avatars.githubusercontent.com/u/86262930?v=4" width=115></sub></abbr>](https://github.com/joaoortegabr)
+[<abbr title="Vitor Ribeiro"><img src="https://avatars.githubusercontent.com/u/104174897?v=4" width=115></sub></abbr>](https://github.com/vitoreribeiro)
+[<abbr title="Victor Hugo Gonçalves"><img src="https://avatars.githubusercontent.com/u/112724179?v=4" width=115></sub></abbr>](https://github.com/VH-RochaGoncalves) 
 
 
 
