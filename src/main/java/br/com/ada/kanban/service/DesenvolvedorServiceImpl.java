@@ -19,10 +19,7 @@ public class DesenvolvedorServiceImpl implements DesenvolvedorService {
 
     @Override
     public Desenvolvedor save(Desenvolvedor desenvolvedor) {
-        if(!repository.existsById(desenvolvedor.getId())){
-            repository.save(desenvolvedor);
-        }
-        throw new DesenvolvedorAlreadyExistException();
+        return repository.save(desenvolvedor);
     }
 
     @Override

@@ -2,10 +2,7 @@ package br.com.ada.kanban.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -14,6 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class Cliente {
@@ -29,7 +27,6 @@ public class Cliente {
     @Column(nullable = false)
     private String telefone;
 
-    @Column(nullable = false)
     @OneToMany(mappedBy = "cliente")
     @JsonIgnoreProperties("cliente")
     private Set<Tarefa> pedidos = new HashSet<Tarefa>();

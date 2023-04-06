@@ -24,7 +24,6 @@ public class Desenvolvedor {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
     @ManyToMany
     @JoinTable(name = "desenvolvedor_tarefa",
     joinColumns = @JoinColumn(name = "desenvolvedor_id"),

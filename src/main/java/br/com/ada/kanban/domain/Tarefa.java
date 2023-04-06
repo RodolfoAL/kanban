@@ -33,7 +33,7 @@ public class Tarefa {
     @Column(nullable = false)
     private Set<Desenvolvedor> desenvolvedor = new HashSet<Desenvolvedor>();
 
-    @Column(nullable = false)
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

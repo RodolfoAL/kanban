@@ -1,5 +1,6 @@
 package br.com.ada.kanban.controller;
 
+import br.com.ada.kanban.domain.Cliente;
 import br.com.ada.kanban.domain.Tarefa;
 import br.com.ada.kanban.dto.TarefaDTO;
 import br.com.ada.kanban.service.TarefaService;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RequestMapping("tarefas")
 @RestController
@@ -15,6 +18,10 @@ public class TarefaController {
 
     private final TarefaService tarefaService;
 
+    @GetMapping
+    public List<Tarefa> list() {
+        return tarefaService.list();
+    }
 
     @GetMapping("{id}")
     public Tarefa findById (@PathVariable Long id){

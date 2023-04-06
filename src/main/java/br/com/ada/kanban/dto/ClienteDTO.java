@@ -25,7 +25,4 @@ public class ClienteDTO {
     @NotBlank (message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
     private String telefone;
 
-    @NotBlank (message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private Set<Tarefa> pedidos;
-
 }

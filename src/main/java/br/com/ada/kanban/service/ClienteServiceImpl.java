@@ -26,10 +26,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente save(Cliente cliente) {
-        if(!repository.existsById(cliente.getId())){
-            repository.save(cliente);
-        }
-        throw new ClienteAlreadyExistsException();
+        return repository.save(cliente);
     }
 
     @Override

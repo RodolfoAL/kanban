@@ -51,7 +51,6 @@ public class DesenvolvedorController {
     public Desenvolvedor buildDesenvolvedor(DesenvolvedorDTO dto){
         Desenvolvedor desenvolvedor = Desenvolvedor.builder()
                 .nome(dto.getNome())
-                .tarefa((Set<Tarefa>) dto.getTarefa())
                 .build();
         return desenvolvedor;
     }
