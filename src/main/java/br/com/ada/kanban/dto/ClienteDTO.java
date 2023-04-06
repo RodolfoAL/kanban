@@ -2,10 +2,7 @@ package br.com.ada.kanban.dto;
 
 import br.com.ada.kanban.domain.Tarefa;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -14,6 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class ClienteDTO {
 

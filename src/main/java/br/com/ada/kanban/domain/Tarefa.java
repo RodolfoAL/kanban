@@ -1,10 +1,7 @@
 package br.com.ada.kanban.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class Tarefa {
@@ -30,12 +28,11 @@ public class Tarefa {
 
 
     @ManyToMany(mappedBy = "tarefa")
-    @Column(nullable = false)
     private Set<Desenvolvedor> desenvolvedor = new HashSet<Desenvolvedor>();
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
     @Enumerated(EnumType.STRING)

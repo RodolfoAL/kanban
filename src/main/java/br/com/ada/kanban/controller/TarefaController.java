@@ -50,6 +50,7 @@ public class TarefaController {
         Tarefa tarefa = Tarefa.builder()
                 .titulo(dto.getTitulo())
                 .descricao(dto.getDescricao())
+                .cliente(dto.getCliente())
                 .build();
         return tarefa;
     }

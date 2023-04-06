@@ -1,6 +1,7 @@
 package br.com.ada.kanban.service;
 
 import br.com.ada.kanban.domain.Cliente;
+import br.com.ada.kanban.domain.Status;
 import br.com.ada.kanban.domain.Tarefa;
 import br.com.ada.kanban.exceptions.ClienteAlreadyExistsException;
 import br.com.ada.kanban.exceptions.ClienteNotFoundException;
@@ -30,10 +31,8 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Override
     public Tarefa save(Tarefa tarefa) {
-        if(!repository.existsById(tarefa.getId())){
-            repository.save(tarefa);
-        }
-        throw new TarefaAlreadyExistsException();
+        tarefa.setStatus(Status.TO_DO);
+        return repository.save(tarefa);
     }
 
     @Override
