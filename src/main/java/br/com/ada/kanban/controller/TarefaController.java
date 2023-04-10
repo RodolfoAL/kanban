@@ -35,7 +35,7 @@ public class TarefaController {
         return tarefaService.save(tarefa);
         }
 
-
+    @PutMapping("{id}")
     public Tarefa update(@Valid @PathVariable Long id, @RequestBody TarefaDTO dto){
         Tarefa tarefa = buildTarefa(dto);
         return tarefaService.update(id, tarefa);
