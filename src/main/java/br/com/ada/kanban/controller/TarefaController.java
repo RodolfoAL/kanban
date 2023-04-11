@@ -47,10 +47,12 @@ public class TarefaController {
     }
 
     public Tarefa buildTarefa(TarefaDTO dto){
+        Cliente cliente = new Cliente();
+        cliente.setId(dto.getClienteId());
         Tarefa tarefa = Tarefa.builder()
                 .titulo(dto.getTitulo())
                 .descricao(dto.getDescricao())
-                .cliente(dto.getCliente())
+                .cliente(cliente)
                 .build();
         return tarefa;
     }

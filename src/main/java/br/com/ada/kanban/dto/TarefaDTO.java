@@ -23,6 +23,6 @@ public class TarefaDTO {
     private String descricao;
 
 //   @NotNull(message = "Este é um campo obrigatório, não deve ser nulo ou em branco")
-    private Cliente cliente;
+    private Long clienteId;
 
 }

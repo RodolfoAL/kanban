@@ -1,5 +1,6 @@
 package br.com.ada.kanban.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,8 +32,8 @@ public class Tarefa {
     private Set<Desenvolvedor> desenvolvedor = new HashSet<Desenvolvedor>();
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("pedidos")
     private Cliente cliente;
 
     @Enumerated(EnumType.STRING)
